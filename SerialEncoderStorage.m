@@ -1,3 +1,5 @@
+%this code is out of date.  Don't use this.
+
 %for serial USB on left side of my Macbook 
 s = serial('/dev/tty.usbmodem1411');
 
