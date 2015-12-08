@@ -1,3 +1,5 @@
+//this is outdated, don't use this.
+
 import processing.serial.*;
 Serial mySerial;
 PrintWriter output;
