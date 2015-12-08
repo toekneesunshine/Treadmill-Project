@@ -1,0 +1,60 @@
+#include <Time.h>
+
+ int val; 
+ int encoder0PinA = 3;
+ int encoder0PinB = 4;
+ int encoder0Pos = 0;
+ int encoder0PinALast = LOW;
+ int n = LOW;
+
+ //Note for setup that:
+ //RED is 5V DC
+ //ORANGE is Channel B (4)
+ //YELLOW is Channel A (3)
+ //GREEN is GND
+ 
+ void setup() { 
+   pinMode (encoder0PinA,INPUT);
+   pinMode (encoder0PinB,INPUT);
+   Serial.begin (115200);   
+   //Header Printout
+/*    
+    Serial.print ("START TRIAL \n");
+    Serial.print ("Month-Day-Year \n");
+    Serial.print (month());
+    Serial.print ("-");
+    Serial.print (day());
+    Serial.print ("-");
+    Serial.print (year());
+    Serial.print ("\n");
+    Serial.print ("Hour:Minute:Second \n");
+    Serial.print (hour());
+    Serial.print (":");
+    Serial.print (minute());
+    Serial.print (":");
+    Serial.print (second());
+    Serial.print ("\n");
+    Serial.print ("--------------------------------- \n");
+    Serial.print ("Encoder Pos");
+    Serial.print ("\t");
+    Serial.print ("Millisec Elapsed \n");
+*/
+ }
+
+ void loop() { 
+   n = digitalRead(encoder0PinA);
+   if ((encoder0PinALast == LOW) && (n == HIGH)) {
+     if (digitalRead(encoder0PinB) == LOW) {
+       encoder0Pos--;
+     } else {
+       encoder0Pos++;
+     }
+    
+     Serial.print (encoder0Pos, 10);
+     Serial.print ("\t \t \t");
+     Serial.print (millis());
+     Serial.print ("\n");
+     
+   } 
+   encoder0PinALast = n;
+ } 
