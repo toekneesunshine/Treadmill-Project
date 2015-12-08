@@ -1,4 +1,4 @@
-function Arrayoutput = read_encoder()
+function Arrayoutput = readencoder()
 % Function to read Arduino serial encoder inputs
 % Stores inputs locally in array of name
 
@@ -36,8 +36,8 @@ while ~isempty(A)
     %A = fscanf(serial1, '%i', serial1.ValuesReceived)
 end
 
-Arrayoutput = strread(rawdata); %if rawdata is the output of read_encoder
-%parse read_encoder and store as usable nx2 array
+Arrayoutput = strread(rawdata); %if rawdata is the output of readencoder
+%parse readencoder and store as usable nx2 array
 %column 1 is millisec elapsed, column 2 is pulse position
 
 fclose(serial1);
